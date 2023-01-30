@@ -1,1 +1,54 @@
-{"name":"Local: new","url":"c:\\Users\\asus\\Documents\\code\\vs\\new.cpp","tests":[{"id":1675085954303,"input":"((())","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\asus\\Documents\\code\\vs\\new.cpp","group":"local","local":true}
+#include <bits/stdc++.h>
+#define vi vector<int>
+#define print(v) cout << v[i] << " ";
+#define loop(m) for (i = 0; i < m; i++)
+#define lop(m) for (j = 1; j <= m; j++)
+#define len(str) str.length()
+#define clr(str) str.clear()
+#define nl endl;
+#define cnl cout << endl;
+#define pb push_back
+#define yes cout << "YES" << nl;
+#define no cout << "NO" << nl;
+#define srt(v) sort(v.begin(), v.end());
+#define reverse(v) reverse(v.begin(), v.end())
+using namespace std;
+int main()
+{
+    string str;
+    cin >> str;
+    stack <char> s;
+    int l = len(str);
+    int f = 0;
+    for (int i = 0; i < l; i++)
+    {
+        if (str[i] == '(')
+        {
+            s.push(str[i]);
+        }
+        else if (str[i] == ')')
+        {
+            if (s.empty())
+            {
+                f = 1;
+                break;
+            }
+            else
+            {
+                s.pop();
+            }
+        }
+    }
+    if (s.empty())
+    {
+        f = 0;
+    }
+    else
+        f = 1;
+    if (f == 0)
+    {
+        cout << "valid parentheses";
+    }
+    else
+        cout << "invalid parentheses";
+}
